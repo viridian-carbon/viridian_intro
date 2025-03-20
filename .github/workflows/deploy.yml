@@ -1,12 +1,12 @@
-name: Deploy VitePress site to GitHub Pages
+name: Build VitePress site for GitHub Pages
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-commit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
@@ -36,11 +36,15 @@ jobs:
         run: pnpm install
       - name: Build Site
         run: pnpm run docs:build
-      - name: Deploy to GitHub Pages 🚀
-        uses: JamesIves/github-pages-deploy-action@v4.4.1
-        with:
-          branch: gh-pages
-          folder: docs/.vitepress/dist
-          # enable single-commit to reduce the repo size
-          single-commit: true
-          clean: true
+      - name: Copy build to docs folder
+        run: |
+          rm -rf docs/dist
+          mkdir -p docs/dist
+          cp -r docs/.vitepress/dist/* docs/dist/
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/dist
+          git commit -m "Build VitePress site" || echo "No changes to commit"
+          git push
