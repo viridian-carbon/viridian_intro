@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  base: '/viridian-carbon/viridian_intro/',
   title: "融禹使用手册",
   description: "融禹智慧综合能源管理系统使用手册",
   themeConfig: {
