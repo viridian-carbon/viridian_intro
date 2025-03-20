@@ -1,21 +1,46 @@
-name: Build VitePress site for GitHub Pages
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+# 工作流名称
+name: Deploy blog to Github Pages
 
+# 用于描述工作流的何时触发
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+# 设置GITHUB_TOKEN的权限
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+# 工作流里的任务
 jobs:
-  build-and-commit:
+  # 构建
+  build:
+    # 指定该任务运行的系统，目前可选的有 ubuntu、windows、和 macOS
     runs-on: ubuntu-latest
+    # 任务里的运行步骤
     steps:
-      - name: Checkout 🛎️
+      # 代码检出
+      - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: 'main'
-      - uses: actions/setup-node@v3
+          fetch-depth: 0
+      # 安装 Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 16
+      # 配置 github pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      # 安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
@@ -32,19 +57,28 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
+      # 安装依赖
       - name: Install dependencies
         run: pnpm install
-      - name: Build Site
-        run: pnpm run docs:build
-      - name: Copy build to docs folder
+      # 打包
+      - name: Build with VitePress
         run: |
-          rm -rf docs/dist
-          mkdir -p docs/dist
-          cp -r docs/.vitepress/dist/* docs/dist/
-      - name: Commit changes
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add docs/dist
-          git commit -m "Build VitePress site" || echo "No changes to commit"
-          git push
+          pnpm build
+          touch docs/.vitepress/dist/.nojekyll
+      # 上传到 Github Pages 部署环境
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: docs/.vitepress/dist
+  # 部署到GitHubPages
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      # 部署 GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
