@@ -69,7 +69,7 @@ jobs:
           PORT: ${{ secrets.SSH_PORT }}
           USERNAME: ${{ secrets.SERVER_USER }}
         run: |
-          pnpm build
+          pnpm run build
           touch docs/.vitepress/dist/.nojekyll
           docker build -t intro -f ./deploy/Dockerfile --build-arg FRONT_DOMAIN=\"\" --build-arg BACKEND_DOMAIN=\"\" --build-arg PROXY_TO_BACKEND=http:\\/\\/127.0.0.1:8080 .
           echo "Uploading Docker Image..."
