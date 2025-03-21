@@ -80,22 +80,3 @@ jobs:
           echo "Starting to Replace Container"
           echo "${SSH_PRIVATE_KEY}" > ~/priv.key
           curl --insecure -d "" https://${IP_ADDR}:9444/api/webhooks/fea207f6-e9ac-480b-86fc-7e33a3f2ca6
-
-
-      # 上传到 Github Pages 部署环境
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: docs/.vitepress/dist
-  # 部署到GitHubPages
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # 部署 GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
