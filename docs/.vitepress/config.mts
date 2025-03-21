@@ -2,9 +2,8 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/viridian-carbon/viridian_intro/',
   title: "融禹使用手册",
-  description: "融禹智慧综合能源管理系统使用手册",
+  description: "融禹-智慧综合能源管理系统使用手册",
   themeConfig: {
     logo: '/logo.svg',
     nav: [
@@ -12,6 +11,12 @@ export default defineConfig({
       {
         text: '融禹使用手册',
         link: '/product/basic-blocks',
+      },
+      {
+        text: '页面功能',
+        items: [
+          { text: '首页', link: '/pageFunction/SimpleDashboard' }
+        ]
       }
     ],
     docFooter: {
@@ -19,6 +24,10 @@ export default defineConfig({
       next: '下一页',
     },
     sidebar: {
+      '/pageFunction/': [
+        { text: '首页', link: '/pageFunction/SimpleDashboard' }
+
+      ],
       '/product/': [
         {
           text: '了解基础板块',
@@ -47,10 +56,6 @@ export default defineConfig({
     outline: {
       level: 'deep', // 显示2-6级标题
       label: '当前页大纲' // 文字显示
-    },
-    editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path', // 改成自己的仓库
-      text: '在GitHub编辑本页'
     },
   },
   head: [
