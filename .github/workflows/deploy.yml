@@ -56,7 +56,6 @@ jobs:
           PORT: ${{ secrets.SSH_PORT }}
           USERNAME: ${{ secrets.SERVER_USER }}
         run: |
-          npm i
           pnpm i
           pnpm run build
           touch docs/.vitepress/dist/.nojekyll
