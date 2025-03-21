@@ -62,9 +62,26 @@ jobs:
         run: pnpm install
       # 打包
       - name: Build with VitePress
+        env:
+          REGISTER_ADDR: ${{ secrets.REGISTER_ADDR }}
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_PK }}
+          IP_ADDR: ${{ secrets.SSH_ADDR }}
+          PORT: ${{ secrets.SSH_PORT }}
+          USERNAME: ${{ secrets.SERVER_USER }}
         run: |
           pnpm build
           touch docs/.vitepress/dist/.nojekyll
+          docker build -t intro -f ./deploy/Dockerfile --build-arg FRONT_DOMAIN=\"\" --build-arg BACKEND_DOMAIN=\"\" --build-arg PROXY_TO_BACKEND=http:\\/\\/127.0.0.1:8080 .
+          echo "Uploading Docker Image..."
+          docker tag intro $REGISTER_ADDR/intro:$(cat ./VERSION)
+          docker tag intro $REGISTER_ADDR/intro:main
+          docker push $REGISTER_ADDR/intro:$(cat ./VERSION)
+          docker push $REGISTER_ADDR/intro:main
+          echo "Starting to Replace Container"
+          echo "${SSH_PRIVATE_KEY}" > ~/priv.key
+          curl --insecure -d "" https://${IP_ADDR}:9444/api/webhooks/fea207f6-e9ac-480b-86fc-7e33a3f2ca6
+
+
       # 上传到 Github Pages 部署环境
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
