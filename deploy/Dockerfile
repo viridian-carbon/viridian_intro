@@ -4,7 +4,7 @@ ARG BACKEND_DOMAIN
 ARG PROXY_TO_BACKEND
 ARG BRANCH=master
 RUN rm -rf /www && mkdir /www
-ADD ["./","/www/"]
+ADD ["./docs/.vitepress/dist","/www/"]
 RUN chown -R nginx:nginx /www
 RUN rm -rf /etc/nginx/conf.d/* && rm /etc/nginx/nginx.conf && rm -rf /www/deploy /www/.github
 ADD ["./deploy/nginx.conf","/etc/nginx/nginx.conf"]

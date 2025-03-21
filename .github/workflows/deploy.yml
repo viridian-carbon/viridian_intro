@@ -67,4 +67,4 @@ jobs:
           docker push $REGISTER_ADDR/intro:main
           echo "Starting to Replace Container"
           echo "${SSH_PRIVATE_KEY}" > ~/priv.key
-          curl --insecure -d "" https://${IP_ADDR}:9444/api/webhooks/fea207f6-e9ac-480b-86fc-7e33a3f2ca6
+          curl --insecure -d "" https://112.192.16.22:9444/api/webhooks/631fbb83-7bd5-4b52-acac-63e7461cd049
