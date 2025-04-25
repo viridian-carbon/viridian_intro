@@ -36,49 +36,35 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 16
-      # 配置 github pages
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      # 安装 pnpm
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
-          run_install: false
+          node-version: 21
       - name: Get pnpm store directory
         shell: bash
         run: |
           echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+      - name: Install pnpm
+        shell: bash
+        run: npm i pnpm -g
       # 安装依赖
       - name: Install dependencies
         run: pnpm install
       # 打包
       - name: Build with VitePress
+        env:
+          REGISTER_ADDR: ${{ secrets.REGISTER_ADDR }}
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_PK }}
+          IP_ADDR: ${{ secrets.SSH_ADDR }}
+          PORT: ${{ secrets.SSH_PORT }}
+          USERNAME: ${{ secrets.SERVER_USER }}
         run: |
-          pnpm build
+          pnpm i
+          pnpm run build
           touch docs/.vitepress/dist/.nojekyll
-      # 上传到 Github Pages 部署环境
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: docs/.vitepress/dist
-  # 部署到GitHubPages
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      # 部署 GitHub Pages
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2
+          docker build -t intro -f ./deploy/Dockerfile --build-arg FRONT_DOMAIN=\"\" --build-arg BACKEND_DOMAIN=\"\" --build-arg PROXY_TO_BACKEND=http:\\/\\/127.0.0.1:8080 .
+          echo "Uploading Docker Image..."
+          docker tag intro $REGISTER_ADDR/intro:$(cat ./VERSION)
+          docker tag intro $REGISTER_ADDR/intro:main
+          docker push $REGISTER_ADDR/intro:$(cat ./VERSION)
+          docker push $REGISTER_ADDR/intro:main
+          echo "Starting to Replace Container"
+          echo "${SSH_PRIVATE_KEY}" > ~/priv.key
+          curl --insecure -d "" https://112.192.16.22:9444/api/webhooks/631fbb83-7bd5-4b52-acac-63e7461cd049
