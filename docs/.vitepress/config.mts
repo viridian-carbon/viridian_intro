@@ -87,6 +87,12 @@ export default defineConfig({
               { text: '异常处理', link: '/pageFunction/WarningCenter/ExceptionHandling.md' },
               { text: '智能漏损分析', link: '/pageFunction/WarningCenter/WaterLeakageAnalysis.md' },
             ]
+          }, {
+            text: '系统管理',
+            items: [{
+              text: '统计标签管理',
+              link: '/pageFunction/SystemManagement/StatisticsLabelManagement'
+            }]
           }
         ],
         activeMatch: '/pageFunction/'
@@ -137,6 +143,12 @@ export default defineConfig({
             { text: '异常处理', link: '/pageFunction/WarningCenter/ExceptionHandling.md' },
             { text: '智能漏损分析', link: '/pageFunction/WarningCenter/WaterLeakageAnalysis.md' },
           ]
+        }, {
+          text: '系统管理',
+          items: [{
+            text: '统计标签管理',
+            link: '/pageFunction/SystemManagement/StatisticsLabelManagement'
+          }]
         }
       ],
       '/product/': [

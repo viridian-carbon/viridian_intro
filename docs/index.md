@@ -15,10 +15,10 @@ hero:
   actions:
     - theme: brand
       text: 融禹使用手册
-      link: /quick-start
+      link: /product/basic-blocks
     - theme: alt
       text: 页面功能
-      link: /features
+      link: /pageFunction/SimpleDashboard
 
 head:
   - - meta
