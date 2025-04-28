@@ -70,11 +70,22 @@ export default defineConfig({
               { text: '能碳监控', link: '/pageFunction/EnergyData/Carbon' },
               { text: '水资源图表数据', link: '/pageFunction/EnergyData/WaterData' },
               { text: '水资源报表数据', link: '/pageFunction/EnergyData/WaterIntelligentMeter' },
-
-
-
-              { text: '电能数据', link: '/pageFunction/EnergyData/ElectricityData' },
+              { text: '水平衡', link: '/pageFunction/EnergyData/WaterBalance' },
+              { text: '电能图表数据', link: '/pageFunction/EnergyData/ElectricityData' },
+              { text: '电能报表数据', link: '/pageFunction/EnergyData/ElectricityIntelligentMeter' },
               { text: '用能计划', link: '/pageFunction/EnergyData/EnergyPlan' },
+            ]
+          }, {
+            text: '设备中心',
+            items: [
+              { text: '设备信息', link: '/pageFunction/DeviceCenter/DeviceInfo' },
+              { text: '设备架构', link: '/pageFunction/DeviceCenter/DeviceArchitecture' },
+            ]
+          }, {
+            text: '异常设备中心',
+            items: [
+              { text: '异常处理', link: '/pageFunction/WarningCenter/ExceptionHandling.md' },
+              { text: '智能漏损分析', link: '/pageFunction/WarningCenter/WaterLeakageAnalysis.md' },
             ]
           }
         ],
@@ -108,8 +119,23 @@ export default defineConfig({
             { text: '能碳监控', link: '/pageFunction/EnergyData/Carbon' },
             { text: '水资源图表数据', link: '/pageFunction/EnergyData/WaterData' },
             { text: '水资源报表数据', link: '/pageFunction/EnergyData/WaterIntelligentMeter' },
-            { text: '电能数据', link: '/pageFunction/EnergyData/ElectricityData' },
+            { text: '水平衡', link: '/pageFunction/EnergyData/WaterBalance' },
+            { text: '电能图表数据', link: '/pageFunction/EnergyData/ElectricityData' },
+            { text: '电能报表数据', link: '/pageFunction/EnergyData/ElectricityIntelligentMeter' },
             { text: '用能计划', link: '/pageFunction/EnergyData/EnergyPlan' },
+          ]
+        },
+        {
+          text: '设备中心',
+          items: [
+            { text: '设备信息', link: '/pageFunction/DeviceCenter/DeviceInfo' },
+            { text: '设备架构', link: '/pageFunction/DeviceCenter/DeviceArchitecture' },
+          ]
+        }, {
+          text: '异常设备中心',
+          items: [
+            { text: '异常处理', link: '/pageFunction/WarningCenter/ExceptionHandling.md' },
+            { text: '智能漏损分析', link: '/pageFunction/WarningCenter/WaterLeakageAnalysis.md' },
           ]
         }
       ],
