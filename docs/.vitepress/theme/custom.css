@@ -1,0 +1,158 @@
+/* 用户导航样式 */
+.user-nav-container {
+    display: flex;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.username {
+    font-size: 14px;
+    font-weight: 500;
+    margin-right: 12px;
+    color: var(--vp-c-text-1);
+}
+
+.logout-button {
+    padding: 4px 12px;
+    font-size: 12px;
+    border: 1px solid var(--vp-c-border);
+    border-radius: 4px;
+    background-color: transparent;
+    color: var(--vp-c-text-2);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-button:hover {
+    color: var(--vp-c-brand);
+    border-color: var(--vp-c-brand);
+}
+
+/* 登录表单样式 */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--vp-c-bg);
+}
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: var(--vp-c-bg-soft);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 16px;
+}
+
+.login-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--vp-c-text-1);
+    margin: 0 0 8px;
+}
+
+.login-subtitle {
+    color: var(--vp-c-text-2);
+    font-size: 14px;
+}
+
+.login-form {
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--vp-c-text-1);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid var(--vp-c-border);
+    border-radius: 4px;
+    background-color: var(--vp-c-bg);
+    color: var(--vp-c-text-1);
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: var(--vp-c-brand);
+    outline: none;
+}
+
+.error-message {
+    padding: 8px 12px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 0, 0, 0.1);
+    border-left: 3px solid #ff4d4f;
+    color: #ff4d4f;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--vp-c-brand);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.login-button:hover {
+    background-color: var(--vp-c-brand-dark);
+}
+
+.login-button:disabled {
+    background-color: var(--vp-c-gray);
+    cursor: not-allowed;
+}
+
+.login-footer {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--vp-c-text-3);
+    font-size: 12px;
+}
+
+/* 调整移动端样式 */
+@media (max-width: 768px) {
+    .user-nav-container {
+        margin-left: 8px;
+    }
+
+    .username {
+        display: none;
+    }
+
+    .logout-button {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}

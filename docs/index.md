@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "融禹智慧能源管理系统"
+  name: "融禹智慧能碳管理系统"
   text: "简化能源管理，优化资源利用"
   tagline: 为企业打造智能、高效、可持续的能源管理解决方案
   image:

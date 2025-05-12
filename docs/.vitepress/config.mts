@@ -1,8 +1,10 @@
 import { defineConfig } from 'vitepress'  // https://vitepress.dev/reference/site-config
 
+
+
 export default defineConfig({
   title: "融禹使用手册",
-  description: "融禹-智慧综合能源管理系统使用手册",
+  description: "融禹-智慧能碳管理系统使用手册",
   lang: 'zh-CN', // 设置语言为中文
 
   // 设置基本路径，如果部署在子目录则需要修改
@@ -10,6 +12,11 @@ export default defineConfig({
 
   // 启用最后更新时间
   lastUpdated: true,
+  // 添加rewrites配置，将/login路径映射到占位符Markdown文件
+  rewrites: {
+    '/login': '/login.md'
+  },
+
 
   // 配置 Markdown 解析器选项
   markdown: {
@@ -51,10 +58,15 @@ export default defineConfig({
 
     // Logo 配置
     logo: '/logo.svg',
-    siteTitle: '融禹综合智慧能源管理系统',
+    siteTitle: '融禹智慧能碳管理系统',
 
     nav: [
       { text: '首页', link: '/' },
+      {
+        text: '账号绑定教程',  // 新增顶部导航
+        link: '/account-binding-tutorial',
+        activeMatch: '/account-binding-tutorial'
+      },
       {
         text: '融禹使用手册',
         link: '/product/basic-blocks',
