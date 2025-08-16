@@ -2,7 +2,7 @@ import {
   nextTick,
   onMounted,
   watch
-} from "./chunk-JN5NFW2R.js";
+} from "./chunk-7X4VNE2G.js";
 
 // node_modules/.pnpm/viewerjs@1.11.7/node_modules/viewerjs/dist/viewer.esm.js
 function _classCallCheck(a, n) {

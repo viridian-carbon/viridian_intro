@@ -1,13 +1,17 @@
 {
   "devDependencies": {
-    "vitepress": "^1.6.3"
+    "cross-env": "^10.0.0",
+    "vitepress": "^1.6.3",
+    "vitepress-export-pdf": "^1.0.0"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "dev": "vitepress dev docs",
     "build": "vitepress build docs",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview docs",
+    "export-pdf": "cross-env PUPPETEER_EXECUTABLE_PATH=C:\\Users\\w\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe press-export-pdf export docs -c docs/.vitepress/export-pdf.config.js"
   },
   "dependencies": {
+    "puppeteer": "^24.16.2",
     "viewerjs": "^1.11.7",
     "vitepress-plugin-image-viewer": "^1.1.6"
   }

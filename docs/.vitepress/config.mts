@@ -68,11 +68,6 @@ export default defineConfig({
         activeMatch: '/account-binding-tutorial'
       },
       {
-        text: '融禹使用手册',
-        link: '/product/basic-blocks',
-        activeMatch: '/product/'
-      },
-      {
         text: '页面功能',
         items: [
           { text: '首页', link: '/pageFunction/SimpleDashboard' },
