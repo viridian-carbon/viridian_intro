@@ -15,21 +15,10 @@ hero:
   actions:
     - theme: brand
       text: 融禹使用手册
-      link: /product/basic-blocks
+      link: /pageFunction/SimpleDashboard
     - theme: alt
       text: 页面功能
       link: /pageFunction/SimpleDashboard
-
-head:
-  - - meta
-    - name: theme-color
-      content: '#3C8772'
-  - - meta
-    - name: apple-mobile-web-app-capable
-      content: yes
-  - - meta
-    - name: apple-mobile-web-app-status-bar-style
-      content: black
 
 features:
   - icon: 
