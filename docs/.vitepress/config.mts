@@ -72,35 +72,40 @@ export default defineConfig({
         items: [
           { text: '首页', link: '/pageFunction/SimpleDashboard' },
           {
-            text: '能源数据',
+            text: '综合能耗',
             items: [
-              { text: '能碳监控', link: '/pageFunction/EnergyData/Carbon' },
-              { text: '水资源图表数据', link: '/pageFunction/EnergyData/WaterData' },
-              { text: '水资源报表数据', link: '/pageFunction/EnergyData/WaterIntelligentMeter' },
-              { text: '水平衡', link: '/pageFunction/EnergyData/WaterBalance' },
-              { text: '电能图表数据', link: '/pageFunction/EnergyData/ElectricityData' },
-              { text: '电能报表数据', link: '/pageFunction/EnergyData/ElectricityIntelligentMeter' },
-              { text: '用能计划', link: '/pageFunction/EnergyData/EnergyPlan' },
+              { text: '能源消费量', link: '/pageFunction/ComprehensiveEnergy/EnergyConsumption' },
+              { text: '能耗查询', link: '/pageFunction/ComprehensiveEnergy/EnergyConsumptionQuery' },
+              { text: '能流分析', link: '/pageFunction/ComprehensiveEnergy/EnergyFlowAnalysis' },
+              { text: '压力监测', link: '/pageFunction/ComprehensiveEnergy/PressureMonitoring' },
+              { text: '用能计划', link: '/pageFunction/ComprehensiveEnergy/EnergyUsagePlan' },
+              { text: '能效对标', link: '/pageFunction/ComprehensiveEnergy/EnergyEfficiencyBenchmark' },
             ]
           }, {
-            text: '设备中心',
+            text: '能碳监控',
             items: [
-              { text: '设备信息', link: '/pageFunction/DeviceCenter/DeviceInfo' },
-              { text: '设备架构', link: '/pageFunction/DeviceCenter/DeviceArchitecture' },
+              { text: '碳排放核查', link: '/pageFunction/CarbonMonitoring/CarbonVerification' },
+              { text: '碳资产', link: '/pageFunction/CarbonMonitoring/CarbonAsset' },
+              { text: '产品碳足迹', link: '/pageFunction/CarbonMonitoring/ProductCarbonFootprint' },
+              { text: '供应链管理', link: '/pageFunction/CarbonMonitoring/SupplyChainManagement' },
             ]
           }, {
-            text: '异常设备中心',
+            text: '用能诊断',
             items: [
-              { text: '异常处理', link: '/pageFunction/WarningCenter/ExceptionHandling.md' },
-              { text: '智能漏损分析', link: '/pageFunction/WarningCenter/WaterLeakageAnalysis.md' },
+              { text: '异常处理', link: '/pageFunction/EnergyDiagnosis/ExceptionHandling' },
+              { text: '智能漏损分析', link: '/pageFunction/EnergyDiagnosis/WaterLeakageAnalysis' },
+              { text: '用能诊断与策略推荐', link: '/pageFunction/EnergyDiagnosis/EnergyDiagnosisStrategy' },
+              { text: '能效平衡与优化', link: '/pageFunction/EnergyDiagnosis/EnergyEfficiencyOptimization' },
             ]
           }, {
-            text: '系统管理',
-            items: [{
-              text: '统计标签管理',
-              link: '/pageFunction/SystemManagement/StatisticsLabelManagement'
-            }]
-          }
+            text: '管理中心',
+            items: [
+              { text: '设备管理', link: '/pageFunction/ManagementCenter/DeviceManagement' },
+              { text: '区域管理', link: '/pageFunction/ManagementCenter/AreaManagement' },
+              { text: '因子管理', link: '/pageFunction/ManagementCenter/FactorManagement' },
+              { text: '用户管理', link: '/pageFunction/ManagementCenter/UserManagement' },
+            ]
+          },
         ],
         activeMatch: '/pageFunction/'
       },
@@ -130,6 +135,7 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: '能碳监控', link: '/pageFunction/EnergyData/Carbon' },
+            { text: '碳排放核查', link: '/pageFunction/EnergyData/CarbonVerification' },
             { text: '水资源图表数据', link: '/pageFunction/EnergyData/WaterData' },
             { text: '水资源报表数据', link: '/pageFunction/EnergyData/WaterIntelligentMeter' },
             { text: '水平衡', link: '/pageFunction/EnergyData/WaterBalance' },
@@ -139,24 +145,48 @@ export default defineConfig({
           ]
         },
         {
-          text: '设备中心',
+          text: '综合能耗',
+          collapsed: false,
           items: [
-            { text: '设备信息', link: '/pageFunction/DeviceCenter/DeviceInfo' },
-            { text: '设备架构', link: '/pageFunction/DeviceCenter/DeviceArchitecture' },
+            { text: '能源消费量', link: '/pageFunction/ComprehensiveEnergy/EnergyConsumption' },
+            { text: '能耗查询', link: '/pageFunction/ComprehensiveEnergy/EnergyConsumptionQuery' },
+            { text: '能流分析', link: '/pageFunction/ComprehensiveEnergy/EnergyFlowAnalysis' },
+            { text: '能效平衡与优化', link: '/pageFunction/ComprehensiveEnergy/EnergyEfficiencyOptimization' },
+            { text: '压力监测', link: '/pageFunction/ComprehensiveEnergy/PressureMonitoring' },
+            { text: '用能计划', link: '/pageFunction/ComprehensiveEnergy/EnergyUsagePlan' },
+            { text: '能效对标', link: '/pageFunction/ComprehensiveEnergy/EnergyEfficiencyBenchmark' },
           ]
-        }, {
-          text: '异常设备中心',
+        },
+        {
+          text: '能碳监控',
+          collapsed: false,
           items: [
-            { text: '异常处理', link: '/pageFunction/WarningCenter/ExceptionHandling.md' },
-            { text: '智能漏损分析', link: '/pageFunction/WarningCenter/WaterLeakageAnalysis.md' },
+            { text: '碳排放核查', link: '/pageFunction/CarbonMonitoring/CarbonVerification' },
+            { text: '碳资产', link: '/pageFunction/CarbonMonitoring/CarbonAsset' },
+            { text: '产品碳足迹', link: '/pageFunction/CarbonMonitoring/ProductCarbonFootprint' },
+            { text: '供应链管理', link: '/pageFunction/CarbonMonitoring/SupplyChainManagement' },
           ]
-        }, {
-          text: '系统管理',
-          items: [{
-            text: '统计标签管理',
-            link: '/pageFunction/SystemManagement/StatisticsLabelManagement'
-          }]
-        }
+        },
+        {
+          text: '用能诊断',
+          collapsed: false,
+          items: [
+            { text: '异常处理', link: '/pageFunction/EnergyDiagnosis/ExceptionHandling' },
+            { text: '智能漏损分析', link: '/pageFunction/EnergyDiagnosis/WaterLeakageAnalysis' },
+            { text: '用能诊断与策略推荐', link: '/pageFunction/EnergyDiagnosis/EnergyDiagnosisStrategy' },
+            { text: '能效平衡与优化', link: '/pageFunction/EnergyDiagnosis/EnergyEfficiencyOptimization' },
+          ]
+        },
+        {
+          text: '管理中心',
+          collapsed: false,
+          items: [
+            { text: '设备管理', link: '/pageFunction/ManagementCenter/DeviceManagement' },
+            { text: '区域管理', link: '/pageFunction/ManagementCenter/AreaManagement' },
+            { text: '因子管理', link: '/pageFunction/ManagementCenter/FactorManagement' },
+            { text: '用户管理', link: '/pageFunction/ManagementCenter/UserManagement' },
+          ]
+        },
       ],
       '/product/': [
         {

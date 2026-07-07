@@ -1,0 +1,6 @@
+allowBuilds:
+  esbuild: false
+  puppeteer: false
+onlyBuiltDependencies:
+  - esbuild
+  - puppeteer
