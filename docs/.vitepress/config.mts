@@ -63,6 +63,11 @@ export default defineConfig({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: '使用手册',
+        link: '/manual',
+        activeMatch: '/manual'
+      },
+      {
         text: '账号绑定教程',  // 新增顶部导航
         link: '/account-binding-tutorial',
         activeMatch: '/account-binding-tutorial'
@@ -111,14 +116,10 @@ export default defineConfig({
       },
     ],
 
-    // 页脚配置
-    docFooter: {
-      prev: '上一页',
-      next: '下一页',
-    },
+
     footer: {
-      message: '四川绿碳桓科技有限公司',
-      copyright: `Copyright © 2025 四川绿碳桓科技有限公司`
+      message: '成都千汇环保科技有限公司',
+      copyright: `Copyright © 2025 成都千汇环保科技有限公司`
     },
 
     // 侧边栏配置

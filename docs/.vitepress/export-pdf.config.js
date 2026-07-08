@@ -1,10 +1,8 @@
 const path = require('path');
 
 module.exports = {
-    // 使用 Edge 浏览器
     executablePath: 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe',
 
-    // PDF 选项
     format: 'A4',
     margin: {
         top: '20mm',
@@ -14,17 +12,21 @@ module.exports = {
     },
     printBackground: true,
 
-    // 等待时间，确保页面完全加载
     waitForTimeout: 3000,
 
-    // 排除的页面
     exclude: [
-        '/404'
+        '/404',
+        '/login'
     ],
 
-    // 输出目录
     outDir: './dist-pdf',
 
-    // 文件名格式
-    outFile: '融禹使用手册.pdf'
+    outFile: '融禹使用手册.pdf',
+
+    puppeteerLaunchOptions: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: 'new'
+    },
+
+    customUserAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 ViridianExportPDF'
 }; 

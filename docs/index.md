@@ -4,101 +4,44 @@ layout: home
 
 hero:
   name: "融禹智慧能碳管理系统"
-  text: "简化能源管理，优化资源利用"
-  tagline: 为企业打造智能、高效、可持续的能源管理解决方案
+  text: "数智化能碳双控，赋能企业低碳转型"
+  tagline: 专为工厂企业打造的工业级“能源计量 + 碳资产履约 + 跨境足迹合规”一体化闭环平台（v2.52.00）
   image:
     src: /logo.svg
     alt: 融禹Logo
     width: 300
     height: 300
-
   actions:
     - theme: brand
-      text: 融禹使用手册
-      link: /pageFunction/SimpleDashboard
+      text: 快速开始 (使用手册)
+      link: /manual
     - theme: alt
-      text: 页面功能
+      text: 核心模块与功能
       link: /pageFunction/SimpleDashboard
 
 features:
   - icon: 
-      src: /icons/user-friendly.svg
-      width: 48
-      height: 48
-      light: /icons/user-friendly-light.svg
-      dark: /icons/user-friendly-dark.svg
-    title: 用户友好
-    details: 直观简洁的界面设计，减少专业术语，使非专业人员也能轻松操作和管理能源数据
-  
-  - icon: 
       src: /icons/compatibility.svg
       width: 48
       height: 48
-    title: 全面兼容
-    details: 支持水、电、气全能源管理，兼容多种厂商的表计设备，适应各行业应用场景，满足企业多元化能源监测需求
+    title: 泛在设备接入与计算
+    details: 内置 16+ 种主流智能仪表协议（思捷、迈德、华天等）。独创“公式计算表/环网虚拟表”软硬结合技术，无盲区覆盖水、电、气、压力及自订能源。
   
   - icon: 
       src: /icons/reports.svg
       width: 48
       height: 48
-    title: 提供定制化报表
-    details: 提供灵活的定制化报表管理，根据企业需求个性化设计数据展示形式，直观呈现能源使用情况，辅助管理者做出明智决策
----
-
-
-<style>
-.industry-container {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  border-radius: 8px;
-  background-color: var(--vp-c-bg-soft);
-}
-
-.industry-title h3 {
-  margin-top: 0;
-  text-align: center;
-  font-size: 1.5rem;
-  color: var(--vp-c-brand);
-}
-
-.industry-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.industry-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background-color: var(--vp-c-bg);
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.industry-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.industry-card img {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 0.5rem;
-}
-
-.industry-card span {
-  font-weight: 500;
-  color: var(--vp-c-text-1);
-  text-align: center;
-}
-
-@media (max-width: 640px) {
-  .industry-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-</style>
+    title: 四维精细化能耗分析
+    details: 提供日/月/按时段/日抄表全维度数据洞察。支持桑基图（Sankey）能流追踪、多费率峰谷电价配置及车间定额能效对标考核。
+  
+  - icon: 
+      src: /icons/carbon.svg
+    title: 一站式“双碳”合规方案
+    details: 内置国家排放因子库。覆盖碳排放核算（Scope 1/2/3）、CEA配额履约、CCER交易。支持欧盟 CBAM 合规，提供全生命周期（LCA）产品碳足迹追溯。
+  
+  - icon: 
+      src: /icons/user-friendly.svg
+      width: 48
+      height: 48
+    title: 智能漏损与故障闭环
+    details: 内置 30+ 种工业级告警事件。支持 Level 2 设备级管网拓扑防漏分析，异常事件通过手机端毫秒级推送，构建“发现-派工-修复-留痕”运维闭环。
