@@ -233,6 +233,12 @@ export default defineConfig({
       }
     },
 
+    // 隐藏上一页/下一页
+    docFooter: {
+      prev: false,
+      next: false,
+    },
+
     // UI 文本本地化
     returnToTopLabel: '返回顶部',
     sidebarMenuLabel: '菜单',
