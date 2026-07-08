@@ -14,9 +14,14 @@ module.exports = {
 
     waitForTimeout: 3000,
 
-    exclude: [
-        '/404',
-        '/login'
+    routePatterns: [
+        '/**',
+        '!/',
+        '!/index.html',
+        '!/manual.html',
+        '!/account-binding-tutorial.html',
+        '!/404.html',
+        '!/login.html'
     ],
 
     outDir: './dist-pdf',

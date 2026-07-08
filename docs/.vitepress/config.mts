@@ -10,8 +10,6 @@ export default defineConfig({
   // 设置基本路径，如果部署在子目录则需要修改
   // base: '/',
 
-  // 启用最后更新时间
-  lastUpdated: true,
   // 添加rewrites配置，将/login路径映射到占位符Markdown文件
   rewrites: {
     '/login': '/login.md'
@@ -222,15 +220,6 @@ export default defineConfig({
     outline: {
       level: [2, 4], // 显示2-4级标题
       label: '当前页大纲' // 文字显示
-    },
-
-    // 最后更新时间配置
-    lastUpdated: {
-      text: '最后更新于',
-      formatOptions: {
-        dateStyle: 'full',
-        timeStyle: 'medium'
-      }
     },
 
     // 隐藏上一页/下一页
